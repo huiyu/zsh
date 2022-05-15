@@ -10,6 +10,8 @@ _comp_options+=(globdots)		# Include hidden files.
 
 plug use "zsh-users/zsh-completions"
 
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
 # z.lua
 plug use skywind3000/z.lua
 
