@@ -3,7 +3,7 @@ plug use "hlissner/zsh-autopair"
 
 # vi mode
 bindkey -v
-export KEYTIMEOUT=1
+export KEYTIMEOUT=10
 
 # Editor
 autoload -z edit-command-line
@@ -18,6 +18,8 @@ bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+
+bindkey -M viins 'jk' vi-cmd-mode
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
