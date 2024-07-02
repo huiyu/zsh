@@ -21,6 +21,15 @@ bindkey -v '^?' backward-delete-char
 
 bindkey -M viins 'jk' vi-cmd-mode
 
+# Yank to system clipboard
+function vi-yank-xclip {
+  zle vi-yank
+  echo "$CUTBUFFER" | pbcopy -i
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+
 # Change cursor shape for different vi modes.
 function zle-keymap-select () {
     case $KEYMAP in
