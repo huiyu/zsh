@@ -37,8 +37,8 @@ zstyle ':completion:*:*:*:users' ignored-patterns \
         usbmux uucp vcsa wwwrun xfs '_*'
 
 # z.lua
+export _ZL_ZSH_NO_FZF=1
 plug use skywind3000/z.lua
-
 # fzf
 local fzf_path=$(which fzf)
 [[ ! -f $fzf_path ]] && echo "fzf not found!"

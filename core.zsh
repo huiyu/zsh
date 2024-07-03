@@ -39,9 +39,13 @@ _source () {
 
 _use () {
   local module=${1:t}
+  if [[ $module =~ ^(.*)-zsh-theme$ ]]; then
+    module=${match[1]}
+  fi
   _debug "Loading" $module
   if [[ -d "$ZDOTDIR/modules/$module" ]]; then
     _source "modules/$module/$module.plugin.zsh" \
+      || _source "modules/$module/$module" \
       || _source "modules/$module/$module.zsh" \
       || _source "modules/$module/$module.zsh-theme" \
       || _source "modules/$module/install.zsh"
